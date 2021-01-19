@@ -28,9 +28,31 @@ def digits_to_words(input_string):
             >>> tp2.digits_to_words(digits_str2)
             'three one four one five'
     """
-    digit_string = None
-    return digit_string
+    tmp = []
+    for s in input_string:
+        if s == '1':
+            tmp.append('one')
+        elif s == '2':
+            tmp.append('two')
+        elif s == '3':
+            tmp.append('three')
+        elif s == '4':
+            tmp.append('four')
+        elif s == '5':
+            tmp.append('five')
+        elif s == '6':
+            tmp.append('six')
+        elif s == '7':
+            tmp.append('seven')
+        elif s == '8':
+            tmp.append('eight')
+        elif s == '9':
+            tmp.append('nine')
+        elif s == '0':
+            tmp.append('zero')
 
+    digit_string = ' '.join(tmp)
+    return digit_string
 
 """
 컴퓨터 프로그래밍에 많은 명명 규칙이 있지만, 두 규칙이 특히 흔히 쓰입니다. 
@@ -64,5 +86,18 @@ def to_camel_case(underscore_str):
             >>> tp2.to_camel_case(underscore_str3)
             "alreadyCamel"
     """
-    camelcase_str = None
-    return camelcase_str
+    camelcase_str = underscore_str.strip('_')
+    camelcase_str = camelcase_str.split('_')
+
+    if len(camelcase_str) == 1:
+        return camelcase_str[0]
+    else:
+        tmp = [camelcase_str[0].lower()]
+
+        del camelcase_str[0]
+
+        for s in camelcase_str:
+            tmp.append(s.title())
+
+        camelcase_str = ''.join(tmp)
+        return camelcase_str
